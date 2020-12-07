@@ -9,6 +9,30 @@ class ScraperFactory:
     Factory method to run individual scraper bots
 
     :param dbo: Database object for querying and executing commands
+
+    :returns:
+
+    _update_scraper_list(dbo)
+        Sets in the DB the last time a scraper ran
+
+    _update_scraper_list()
+        This gets a list from the DB of all enabled scrapers. If the scraper is already
+        in the internal scraper list then it is removed so it no longer runs
+
+    _load_scrapers()
+        Generates a new scraper object and adds it to the internal DB
+
+    _getScrapers()
+        Retrueves a list of all enabled scrapers from the DB
+
+    _addScrapers(scraper_id, scraper_obj)
+        Adds a scraper to the internal scraper list
+
+    _delScraper(scraper_id)
+        Deletes a scraper from the internal scraper list
+
+    run()
+        Runs each scraper bot in turn and at specified intervals
     """
 
     # TODO: Add in logging to local log

@@ -7,11 +7,9 @@ run on it's own.
 
 """
 import sqlite3
-import os.path
 
 
 # TODO: Move to SQLAlchemy to utilise any number of DBs
-# TODO: Update class documentation
 
 class DbSqlite3Wrapper:
     """
@@ -51,6 +49,15 @@ class DbSqlite3Wrapper:
 
     update(cmd_sql, cmd_values)
         Updates an entry in the database
+
+    log_task(id, start_dt, end_dt, task_name, http_code, status_code, content, duration, owner)
+        Add a log entry for a task into the database for timings and errors
+
+    setup_scrapers_db()
+        Create the initial database
+
+    scrapers_sample_data()
+        Add the sample data to the database for testing
     """
 
     def __init__(self, db_file):

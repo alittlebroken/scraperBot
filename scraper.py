@@ -23,6 +23,48 @@ class ScraperBot:
     :param scraper_id: The unique ID of the scraper in the database
     :param dbo: The object that allows us to run commands against the database
     :returns:
+
+
+    Attributes
+    ----------
+    id  :   The internal id for this scraper
+    db :    A copy of the database object passed in via init
+    rules : The rules used by this scraper to extract the relevant data
+    last_run_at : The time the scraper last run
+    current_run_at : The current time of the active run
+    running : Is the scraper currently running
+    state : The current state of the scraper
+    last_state : The sate of the runner on the last run
+    enabled : This is used to enable the scraper to run right away on startup rather than wait for the specified
+              interval
+    status_code : The http status code returned when gathering the data from the target web page
+
+    Methods
+    ----------
+    _logLastRun(scraper_id)
+        Sets the time the scraper last ran in the database
+
+    _loadConfiguration()
+        Retrieves from the database this scrapers rules and config data from the DB
+
+    _save_search_results()
+        Stores the raw data taken from the target site and stores it within the DB
+
+    _get_search_results()
+        Go to the target url and extracts the raw data to parse through
+
+    update()
+        Each tick it updates the last run time. This is then used to determine if
+        enough time has passed between runs of the scraper
+
+    _process_data()
+        Processes the raw extracted data for the slaient information and displays
+        on screen
+
+    run()
+        Runs the scraper. Basically extracts the raw data, stores and processes it
+
+
     """
 
     def __init__(self, scraper_id=None, dbo=None):

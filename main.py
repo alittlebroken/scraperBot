@@ -14,16 +14,17 @@ database = DbSqlite3Wrapper(configuration['database_name'])
 database.connect()
 factory = ScraperFactory(database)
 
+
 def main():
     """
-    Runs the application
 
+    Runs the application
 
     :return:
     """
     factory.run()
 
-# Press the green button in the gutter to run the script.
+
 if __name__ == '__main__':
     # Run the application
     main()
