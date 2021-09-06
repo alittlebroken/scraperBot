@@ -186,4 +186,6 @@ TODO
 --------------------
 - Web Interface with Flask
 - Add docker files for web, DB and scrapers
-- Come up with a better name than scrapers
+- Come up with a better name for the project
+- Output startup info to console
+- Use a scheduler library for the scrapers
