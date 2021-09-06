@@ -189,3 +189,7 @@ TODO
 - Come up with a better name for the project
 - Output startup info to console
 - Use a scheduler library for the scrapers
+- Use environment variables for common config values
+- Use SQLAlchemy for scrapers
+- Add command line functions to scrapers
+- Send output to log instead of console
